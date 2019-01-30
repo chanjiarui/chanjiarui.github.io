@@ -152,6 +152,183 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo-github博客搭建步骤" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/30/hexo-github博客搭建步骤/">Hexo+GitHub博客搭建步骤</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/30/hexo-github博客搭建步骤/" class="archive-article-date">
+  	<time datetime="2019-01-30T02:46:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是Hexo？"><a href="#什么是Hexo？" class="headerlink" title="什么是Hexo？"></a>什么是Hexo？</h3><blockquote>
+<p>A fast,simple&amp;powerful blog framework,powered by node.js</p>
+</blockquote>
+<p>Hexo是一个简单地，轻量地，基于Node.js的静态博客框架，可以方便地生成静态网页托管在GitHub上</p>
+<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3><p>因为Hexo是基于Node.js的，所以要先安装Node</p>
+<p>1、进入<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node</a>的官网，我下载安装的是左边的<em>10.15.1 LTS</em><br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 上午11.11.52.png" alt=""></p>
+<p>2、安装成功之后，在终端里面输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure>
+<p>若显示如下版本号,则安装成功<br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 上午11.21.47.png" alt=""></p>
+<font color="red">若提示为-bash: node: command not found</font>，需要配置环境变量，具体配置过程如下:<br><br><em> 创建</em>.bash_profile<em>文件，~表示在~目录下，.表示隐藏文件，打开终端，输入命令如下<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch ~/.bash_profile</span><br></pre></td></tr></table></figure>
+
+</em> 打开<em>.bash_profile</em>文件，输入命令如下：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open -t ~/.bash_profile</span><br></pre></td></tr></table></figure><br><br><em> 这时候在弹出的一个空白的文本编辑框中，编辑如下一行内容：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/bin:/usr/bin:/bin:/usr/sbin:/sbin</span><br></pre></td></tr></table></figure><br><br>command + s保存文件
+
+</em> 保存<em>.bash_profile</em>文件<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure><br><br>### 安装Hexo<br>成功安装完Node之后，输入如下命令就可以在线安装Hexo了<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo</span><br></pre></td></tr></table></figure><br><br>创建一个Hexo文件夹，然后cd到该文件下，执行命令:<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure><br><br>执行如下命令开启Hexo服务器<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><br><br>此时，浏览器中输入地址<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>，就能看到如下页面<br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 上午11.46.40.png" alt=""><br><br>### 关联GitHub<br><br>1、创建仓库<br><br>建一个仓库名字为<font color="grey">用户名.github.io</font>d的固定写法<br><br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 上午11.56.42.png" alt=""><br><br>本地的hexo文件夹内容如下:<br><br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 上午11.57.50.png" alt=""><br><br>到Hexo文件夹下打开终端，输入命令：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim _config.yml</span><br></pre></td></tr></table></figure><br><br><em>_config.yml</em> 文件就是Hexo的配置文件，在最下面加入几句话<br><br><img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 下午12.00.48.png" alt=""><br><br><font color="red">注意：在_config.yml文件夹中，每个冒号的后面都要加一个空格，否则Hexo会报错</font>
+
+<p>在Hexo文件夹目录下生成静态页面的命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>再执行配置命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<font color="red">若出现错误error deployer not found：git</font>，执行如下命令即可<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -- save hexo-deployer-git</span><br></pre></td></tr></table></figure><br><br> 浏览器打开<a href="http://chanjiarui.github.io" target="_blank" rel="noopener">http://chanjiarui.github.io</a>就可以看到如下页面:<br> <img src="/Users/jiaruichen/Desktop/屏幕快照 2019-01-30 下午12.22.52.png" alt=""><br><br> 我使用的是<font color="grey">yilia</font>主题，Hexo默认的是<font color="grey">lanscape</font>
+
+<p>2、发布文章</p>
+<p>到Hexo文件夹目录下输入如下命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"Hexo+GitHub博客搭建全过程"</span></span><br></pre></td></tr></table></figure>
+<p>在本地目录<font color="grey">/hexo/source/_posts</font><br>下就会生成一个<font color="grey">“Hexo+GitHub博客搭建全过程.md”</font>文件，我使用的是<font color="grey">MacDown编辑器</font>来编写markdown文档。</p>
+<p>文章编写完之后，到Hexo文件夹目录下，输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>3、更新配置<br>每次修改Hexo配置文件<em>_config.yml</em> ,都要执行下面三步：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean//清除缓存文件 (db.json) 和已生成的静态文件 (public)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g//生成静态页面</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d//重新部署到服务器</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Hexo+GitHub博客搭建全过程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/30/hexo-github博客搭建步骤/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-firstblog" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/30/firstblog/">firstblog</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/30/firstblog/" class="archive-article-date">
+  	<time datetime="2019-01-29T18:28:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h1><h4 id="welcome-to-my-blog"><a href="#welcome-to-my-blog" class="headerlink" title="welcome to my blog!"></a>welcome to my blog!</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HelloWorld</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/30/firstblog/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -314,6 +491,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Hexo+GitHub博客搭建全过程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HelloWorld</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
